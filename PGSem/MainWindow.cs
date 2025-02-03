@@ -93,18 +93,17 @@ namespace PGSem
             if (showAll)
             {
                 drawImage.Draw(g, images);
-                showAll = false;
             }
             if (LoadImage.bitMapImage != null)
             {
                 drawImage.Draw(g);
-                showAll = false;
             }
         }
 
         private void GaussFilterOnClick(object sender, EventArgs e)
         {
             sw.Start();
+            showAll = false;
             if (image != null)
             {
                 gaussImage = GaussFilter.ApplyGaussFilter(image);
@@ -128,6 +127,7 @@ namespace PGSem
         private void SobelEdgeOnClick(object sender, EventArgs e)
         {
             sw.Start();
+            showAll = false;
             if (gaussImage != null)
             {
                 sobelImage = SobelOperator.SobelEdgeDetection(gaussImage);
@@ -151,6 +151,7 @@ namespace PGSem
         private void OtsuTresholdOnClick(object sender, EventArgs e)
         {
             sw.Start();
+            showAll = false;
             if (sobelImage != null)
             {
                 otsuBinaryImage = OtsuTreshold.ApplyOtsuTreshold(sobelImage);
@@ -174,6 +175,7 @@ namespace PGSem
         private void BezierCurveOnClick(object sender, EventArgs e)
         {
             sw.Start();
+            showAll = false;
             if (otsuBinaryImage != null)
             {
                 List<(double x, double y)> centerLine = BezierCurve.FindCenterLine(otsuBinaryImage);
@@ -228,6 +230,7 @@ namespace PGSem
             }
             sw.Stop();
             TimeTextBox.Text = sw.ElapsedMilliseconds.ToString() + "ms";
+            sw.Reset();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace PGSem
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             CreateCurve.Enabled = false;
             GaussBut.Enabled = false;
             SobelBut.Enabled = false;

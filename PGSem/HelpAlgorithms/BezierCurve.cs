@@ -47,7 +47,7 @@ public static class BezierCurve
         return CubicSpline.InterpolateNatural(xValues, yValues);
     }
 
-    public static List<(double x, double y)> SampleBezierCurve(CubicSpline curve, int height, int step = 15)
+    public static List<(double x, double y)> SampleBezierCurve(CubicSpline curve, int height, int step = 20)
     {
         List<(double x, double y)> bezierPoints = new List<(double x, double y)>();
 

@@ -29,35 +29,36 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            NumFieldLabel = new Label();
+            NumericField = new NumericUpDown();
             CyclicBut = new Button();
             bClearBut = new Button();
             SobelBut = new Button();
             GaussBut = new Button();
             button1 = new Button();
-            ImageChckBox = new CheckBox();
             CreateCurve = new Button();
             groupBox1 = new GroupBox();
             BezierBut = new Button();
             label1 = new Label();
             OtsuBut = new Button();
             TimeTextBox = new TextBox();
+            ImageChckBox = new CheckBox();
             doubleBuffPanel = new DoubleBuffPanel();
-            NumericField = new NumericUpDown();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericField).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDark;
+            panel1.Controls.Add(NumFieldLabel);
             panel1.Controls.Add(NumericField);
             panel1.Controls.Add(CyclicBut);
             panel1.Controls.Add(bClearBut);
             panel1.Controls.Add(SobelBut);
             panel1.Controls.Add(GaussBut);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(ImageChckBox);
             panel1.Controls.Add(CreateCurve);
             panel1.Controls.Add(groupBox1);
             panel1.Dock = DockStyle.Left;
@@ -66,21 +67,38 @@
             panel1.Size = new Size(222, 936);
             panel1.TabIndex = 0;
             // 
+            // NumFieldLabel
+            // 
+            NumFieldLabel.AutoSize = true;
+            NumFieldLabel.Location = new Point(39, 806);
+            NumFieldLabel.MaximumSize = new Size(180, 0);
+            NumFieldLabel.Name = "NumFieldLabel";
+            NumFieldLabel.Size = new Size(131, 30);
+            NumFieldLabel.TabIndex = 11;
+            NumFieldLabel.Text = "Počet iterácií";
+            // 
+            // NumericField
+            // 
+            NumericField.Location = new Point(23, 848);
+            NumericField.Name = "NumericField";
+            NumericField.Size = new Size(164, 35);
+            NumericField.TabIndex = 10;
+            // 
             // CyclicBut
             // 
-            CyclicBut.Location = new Point(43, 768);
+            CyclicBut.Location = new Point(23, 708);
             CyclicBut.Name = "CyclicBut";
-            CyclicBut.Size = new Size(131, 40);
+            CyclicBut.Size = new Size(164, 79);
             CyclicBut.TabIndex = 9;
-            CyclicBut.Text = "Cyclic Start";
+            CyclicBut.Text = "Cyklické spustenie";
             CyclicBut.UseVisualStyleBackColor = true;
             CyclicBut.Click += CyclicOnClick;
             // 
             // bClearBut
             // 
-            bClearBut.Location = new Point(43, 712);
+            bClearBut.Location = new Point(23, 662);
             bClearBut.Name = "bClearBut";
-            bClearBut.Size = new Size(131, 40);
+            bClearBut.Size = new Size(164, 40);
             bClearBut.TabIndex = 8;
             bClearBut.Text = "Clear";
             bClearBut.UseVisualStyleBackColor = true;
@@ -113,20 +131,9 @@
             button1.Name = "button1";
             button1.Size = new Size(173, 77);
             button1.TabIndex = 2;
-            button1.Text = "Select Image";
+            button1.Text = "Vyberte obrázok";
             button1.UseVisualStyleBackColor = true;
             button1.Click += SelectImageOnClick;
-            // 
-            // ImageChckBox
-            // 
-            ImageChckBox.AutoSize = true;
-            ImageChckBox.Location = new Point(34, 662);
-            ImageChckBox.Name = "ImageChckBox";
-            ImageChckBox.Size = new Size(151, 34);
-            ImageChckBox.TabIndex = 1;
-            ImageChckBox.Text = "Show Bezier";
-            ImageChckBox.UseVisualStyleBackColor = true;
-            ImageChckBox.Click += ShowImageChckBox;
             // 
             // CreateCurve
             // 
@@ -136,7 +143,7 @@
             CreateCurve.Name = "CreateCurve";
             CreateCurve.Size = new Size(173, 69);
             CreateCurve.TabIndex = 0;
-            CreateCurve.Text = "Create \r\nCurve\r\n";
+            CreateCurve.Text = "Spustiť všetky metódy";
             CreateCurve.UseVisualStyleBackColor = true;
             CreateCurve.Click += CreateCurveButton;
             // 
@@ -146,12 +153,13 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(OtsuBut);
             groupBox1.Controls.Add(TimeTextBox);
+            groupBox1.Controls.Add(ImageChckBox);
             groupBox1.Location = new Point(3, 248);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(216, 371);
+            groupBox1.Size = new Size(216, 391);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Samostatne metody";
+            groupBox1.Text = "Samostatne metódy";
             // 
             // BezierBut
             // 
@@ -166,11 +174,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 280);
+            label1.Location = new Point(24, 299);
             label1.Name = "label1";
-            label1.Size = new Size(204, 30);
+            label1.Size = new Size(171, 30);
             label1.TabIndex = 1;
-            label1.Text = "Cas zvolenej metody";
+            label1.Text = "Čas metódy v ms";
             // 
             // OtsuBut
             // 
@@ -185,12 +193,24 @@
             // TimeTextBox
             // 
             TimeTextBox.Enabled = false;
-            TimeTextBox.Location = new Point(20, 313);
+            TimeTextBox.Location = new Point(24, 341);
             TimeTextBox.Name = "TimeTextBox";
             TimeTextBox.PlaceholderText = "00:00";
-            TimeTextBox.Size = new Size(175, 35);
+            TimeTextBox.Size = new Size(160, 35);
             TimeTextBox.TabIndex = 0;
             TimeTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // ImageChckBox
+            // 
+            ImageChckBox.Anchor = AnchorStyles.None;
+            ImageChckBox.AutoSize = true;
+            ImageChckBox.Location = new Point(20, 262);
+            ImageChckBox.Name = "ImageChckBox";
+            ImageChckBox.Size = new Size(184, 34);
+            ImageChckBox.TabIndex = 1;
+            ImageChckBox.Text = "Ukázať obrázok";
+            ImageChckBox.UseVisualStyleBackColor = true;
+            ImageChckBox.Click += ShowImageChckBox;
             // 
             // doubleBuffPanel
             // 
@@ -201,13 +221,6 @@
             doubleBuffPanel.Size = new Size(954, 936);
             doubleBuffPanel.TabIndex = 1;
             doubleBuffPanel.Paint += DoubleBuffPanel_Paint;
-            // 
-            // NumericField
-            // 
-            NumericField.Location = new Point(43, 827);
-            NumericField.Name = "NumericField";
-            NumericField.Size = new Size(131, 35);
-            NumericField.TabIndex = 10;
             // 
             // MainWindow
             // 
@@ -221,9 +234,9 @@
             Text = "Window";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NumericField).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NumericField).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,5 +258,6 @@
         private Button bClearBut;
         private Button CyclicBut;
         private NumericUpDown NumericField;
+        private Label NumFieldLabel;
     }
 }
